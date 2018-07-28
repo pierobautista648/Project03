@@ -2,34 +2,34 @@ const path = require("path");
 const router = require("express").Router();
 const db = require("../models");
 
-const bookFunctions = {
+const workoutFunctions = {
   findAll: function (req, res) {
-    db.Book
+    db.Workout
       .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function (req, res) {
-    db.Book
+    db.Workout
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
-    db.Book
+    db.Workout
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
-    db.Book
+    db.Workout
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function (req, res) {
-    db.Book
+    db.Workout
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
@@ -37,15 +37,15 @@ const bookFunctions = {
   }
 }
 
-router.get("/api/books", bookFunctions.findAll)
+router.get("/api/workouts", workoutFunctions.findAll)
 
-router.post("/api/books", bookFunctions.create)
+router.post("/api/workouts", workoutFunctions.create)
 
-router.delete("/api/books/:id", bookFunctions.remove)
+router.delete("/api/workouts/:id", workoutFunctions.remove)
 
-router.get("/api/books/:id", bookFunctions.findById)
+router.get("/api/workouts/:id", workoutFunctions.findById)
 
-router.patch("/api/books/:id", bookFunctions.update)
+router.patch("/api/workouts/:id", workoutFunctions.update)
 
 // If no API routes are hit, send the React app
 router.use(function (req, res) {

@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const booksController = require("./controllers/booksController")
+const workoutsController = require("./controllers/workoutsController")
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -13,15 +13,15 @@ process.env.MONGODB_URI || "..."
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
-app.use(express.static("client/build"));
+// app.use(express.static("client/build"));
 // Add routes, both API and view
-app.use(booksController);
+app.use(workoutsController);
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist",
+  process.env.MONGODB_URI || "mongodb://localhost/workouts",
   {
     useMongoClient: true
   }

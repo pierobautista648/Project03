@@ -2,22 +2,22 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  getBooks: function () {
-    return axios.get("/api/books");
+  getWorkouts: function () {
+    return axios.get("/api/workouts");
   },
   // Deletes the book with the given id
-  deleteBook: function (id) {
-    return axios.delete("/api/books/" + id);
+  deleteWorkout: function (id) {
+    return axios.delete("/api/workouts/" + id);
   },
   // Saves a book to the database
-  saveBook: function (bookData) {
-    return axios.post("/api/books", bookData);
+  saveWorjout: function (bookData) {
+    return axios.post("/api/workouts", bookData);
   },
   // Gets the book with the given id
-  getBook: function (id) {
-    return axios.get("/api/books/" + id);
+  getWorkout: function (id) {
+    return axios.get("/api/workouts/" + id);
   },
-  patchBook: function (id, bookData) {
-    return axios.patch("/api/books/" + id, bookData);
+  patchWorkout: function (id, bookData) {
+    return axios.patch("/api/workouts/" + id, bookData);
   },
 };
