@@ -6,12 +6,12 @@ export default {
     return axios.get("/api/workouts");
   },
   // Deletes the book with the given id
-  deleteWorkout: function (id) {
+  deleteWorkouts: function (id) {
     return axios.delete("/api/workouts/" + id);
   },
   // Saves a book to the database
-  saveWorjout: function (bookData) {
-    return axios.post("/api/workouts", bookData);
+  saveWorkouts: function (workoutsData) {
+    return axios.post("/api/workouts", workoutsData);
   },
   // Gets the book with the given id
   getWorkout: function (id) {
